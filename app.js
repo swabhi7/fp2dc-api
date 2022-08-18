@@ -13,4 +13,4 @@ app.get("/", (req, res) => {
 
 const port = process.env.PORT || 3333;
 
-app.listen(port, console.log(`API is running on port ${port}`));
+app.listen(port, console.log(`API is running in ${process.env.NODE_ENV} environment on port ${port}`));
