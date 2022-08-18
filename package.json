@@ -1,0 +1,11 @@
+{
+  "name": "fp2dc-api",
+  "version": "1.0.0",
+  "description": "Recipe and Food Blogging website - From Pizza To Dal Chawal",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Swabhimaan Dash",
+  "license": "ISC"
+}
