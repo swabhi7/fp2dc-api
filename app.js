@@ -3,9 +3,12 @@ const express = require("express");
 const app = express();
 
 const dotenv = require("dotenv");
+const connectDatabase = require("./database/connectDatabase");
 
 // Take variables from .env file and put them in process.env
 dotenv.config();
+
+connectDatabase();
 
 app.get("/", (req, res) => {
   res.send("You have reached FP2DC API.");
