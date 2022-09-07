@@ -4,17 +4,14 @@ const app = express();
 
 const dotenv = require("dotenv");
 const connectDatabase = require("./database/connectDatabase");
-const Recipe = require("./database/models/recipe.model");
+const recipeRouter = require("./routes/recipe.routes");
 
 // Take variables from .env file and put them in process.env
 dotenv.config();
 
 connectDatabase();
 
-app.get("/", async (req, res) => {
-  const recipes = await Recipe.find({});
-  res.json(recipes);
-});
+app.use("/api/recipes", recipeRouter);
 
 const port = process.env.PORT || 3333;
 
