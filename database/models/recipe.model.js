@@ -1,22 +1,24 @@
 const { default: mongoose } = require("mongoose");
 
 const tagSchema = mongoose.Schema({
-  tagId: {
-    type: mongoose.Schema.Types.ObjectId,
-    required: true,
-    ref: "Tag",
-  },
+  // TODO - Work on uncommenting below
+  // tagId: {
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   required: true,
+  //   ref: "Tag",
+  // },
   type: { type: String, required: false },
-  value: { type: Number, required: true },
+  value: { type: String, required: true },
 });
 
 const reviewSchema = mongoose.Schema(
   {
-    userId: {
-      type: mongoose.Schema.Types.ObjectId,
-      required: true,
-      ref: "User",
-    },
+    // TODO - Work on uncommenting below
+    // userId: {
+    //   type: mongoose.Schema.Types.ObjectId,
+    //   required: true,
+    //   ref: "User",
+    // },
     rating: { type: Number, required: true },
     feedback: { type: String, required: false },
   },
@@ -32,11 +34,12 @@ const instructionSchema = mongoose.Schema({
 
 const commentSchema = mongoose.Schema(
   {
-    userId: {
-      type: mongoose.Schema.Types.ObjectId,
-      required: true,
-      ref: "User",
-    },
+    // TODO - Work on uncommenting below
+    // userId: {
+    //   type: mongoose.Schema.Types.ObjectId,
+    //   required: true,
+    //   ref: "User",
+    // },
     text: { type: String, required: true },
   },
   {
