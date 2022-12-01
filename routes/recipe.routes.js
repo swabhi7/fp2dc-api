@@ -4,12 +4,14 @@ const asyncHandler = require("express-async-handler");
 const { defaultCurrentPage, defaultItemsPerPage } = require("../constants");
 const Recipe = require("../database/models/recipe.model");
 const { paginate } = require("../middlewares/paginate.middleware");
+const { inputValidator } = require("../middlewares/inputValidator.middleware");
 
 const recipeRouter = express.Router();
 
 // TODO - Learn more about asyncHandler usage
 recipeRouter.get(
   "/",
+  inputValidator,
   paginate,
   asyncHandler(async (req, res) => {
     const {

@@ -1,5 +1,6 @@
 const asyncHandler = require("express-async-handler");
 const _ = require("lodash");
+const { defaultCurrentPage, defaultItemsPerPage } = require("../constants");
 const Recipe = require("../database/models/recipe.model");
 
 const paginate = asyncHandler(async (req, res, next) => {
@@ -18,6 +19,17 @@ const paginate = asyncHandler(async (req, res, next) => {
 
   const totalResults = await Recipe.count();
   const totalPages = _.ceil(totalResults / itemsPerPage);
+
+  if (currentPage > totalPages) {
+    return res.status(400).json({
+      validationResult: {
+        pass: false,
+        messages: [
+          `currentPage : Should be less than or equal to total pages - ${totalPages}`,
+        ],
+      },
+    });
+  }
 
   const prevPage = currentPage > 1 ? currentPage - 1 : null;
   const nextPage =
